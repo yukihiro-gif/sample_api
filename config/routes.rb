@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources 'sample'
   get 'todolists/new'
   get 'top' => 'homes#top'
   post 'todolists' => 'todolists#create'
