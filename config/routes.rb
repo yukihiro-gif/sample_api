@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'inquires/new'
+  get 'inquires/create'
   resources 'sample'
   get 'todolists/new'
   get 'top' => 'homes#top'
