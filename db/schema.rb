@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_02_091517) do
+ActiveRecord::Schema.define(version: 2021_08_26_125858) do
+
+  create_table "inquiries", force: :cascade do |t|
+    t.string "name"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "lists", force: :cascade do |t|
     t.string "title"
@@ -19,6 +26,11 @@ ActiveRecord::Schema.define(version: 2021_08_02_091517) do
     t.datetime "updated_at", null: false
     t.string "image_id"
     t.decimal "score", precision: 5, scale: 3
+  end
+
+  create_table "samples", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tags", force: :cascade do |t|
