@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :inquires, only:[:new, :create]
+  resources :inquiries, only:[:new, :create]
   get 'inquires/create'
   resources 'sample'
   get 'todolists/new'

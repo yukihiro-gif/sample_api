@@ -1,0 +1,13 @@
+<div>
+      <%= form_with model: @inquiry do |f| %>
+      <div>
+       <div><%= f.label :name, "プロフィール名" %></div>
+       <div><%= f.text_field :name %></div>
+      </div>
+      <div>
+       <div><%= f.label :message, "お問い合わせ内容" %></div>
+       <div><%= f.text_area :message %></div>
+      </div>
+      <div><%= f.submit "内容を送信" %></div>
+    <% end %>
+   </div>

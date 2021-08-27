@@ -11,7 +11,7 @@ class TodolistsController < ApplicationController
     tags.each do |tag|
       list.tags.create(name: tag)
     end
-    redirect_to todolist_path(list.id)
+    redirect_to todolist_path(list.id), notice: "写真の投稿に成功しました"
   end
 
   def index
