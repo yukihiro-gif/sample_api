@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_26_125858) do
+ActiveRecord::Schema.define(version: 2021_08_29_101418) do
+
+  create_table "articles", force: :cascade do |t|
+    t.string "name"
+    t.string "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "inquiries", force: :cascade do |t|
     t.string "name"
@@ -31,6 +38,22 @@ ActiveRecord::Schema.define(version: 2021_08_26_125858) do
   create_table "samples", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tag_articles", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tag_relationships", force: :cascade do |t|
+    t.integer "article_id"
+    t.integer "tag_article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id", "tag_article_id"], name: "index_tag_relationships_on_article_id_and_tag_article_id", unique: true
+    t.index ["article_id"], name: "index_tag_relationships_on_article_id"
+    t.index ["tag_article_id"], name: "index_tag_relationships_on_tag_article_id"
   end
 
   create_table "tags", force: :cascade do |t|

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'articles/new'
+  get 'articles/create'
   resources :inquiries, only:[:new, :create]
   get 'inquires/create'
   resources 'sample'
