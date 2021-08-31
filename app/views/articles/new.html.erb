@@ -1,2 +1,40 @@
-<h1>Articles#new</h1>
-<p>Find me in app/views/articles/new.html.erb</p>
+<%= form_with model: @article, url:'/articles', local:true do |f| %>
+ <div>
+   <%= f.label :name, "タイトル" %>
+ </div>
+ <div>
+   <%= f.text_field :name, placeholder: "タイトル" %>
+ </div>
+ <div>
+   <%= f.label :tag_article, "タグ" %>
+ </div>
+ <div>
+   <%= f.text_field :tag_ids, id:'tag_ids' %>
+ </div>
+ <div>
+   <%= f.label :text, "本文" %>
+ </div>
+ <div>
+   <%= f.text_area :text, placeholder: "テキスト" %>
+ </div>
+ <div>
+   <%= f.submit "作成" %>
+ </div>
+<% end %>
+
+<div>
+  <table>
+    <% @articles.each do |article| %>
+
+      <tr>
+        <td>タイトル</td>
+        <td><%= article.name %></td>
+        <td>タグ</td>
+        <td><%= article.tag_articles.name %></td>
+        <td>本文</td>
+        <td><%= article.text %></td>
+      </tr>
+
+    <% end %>
+  </table>
+</div>

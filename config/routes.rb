@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'articles/new'
-  get 'articles/create'
+  resources :articles, only:[:new, :create]
   resources :inquiries, only:[:new, :create]
-  get 'inquires/create'
   resources 'sample'
   get 'todolists/new'
   get 'top' => 'homes#top'
