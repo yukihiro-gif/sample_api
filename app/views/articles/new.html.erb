@@ -33,8 +33,14 @@
         <td><%= article.tag_articles.name %></td>
         <td>本文</td>
         <td><%= article.text %></td>
+        <td><%= article.text %></td>
       </tr>
-
     <% end %>
   </table>
+</div>
+<div>
+    <%= form_with url:articles_search_path, method: :get, local: true do |f| %>
+    <%= f.text_field :search_word %>
+    <%= f.submit"検索" %>
+    <% end %>
 </div>

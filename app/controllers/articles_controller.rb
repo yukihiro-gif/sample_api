@@ -2,13 +2,14 @@ class ArticlesController < ApplicationController
   def new
     @articles = Article.all
     @article = Article.new
+
   end
 
   def create
     @articles = Article.all
     @article = Article.new(params_article)
-    tag_list = params[:article][:tag_ids]
-    
+    tag_list = params[:article][:tag_ids].split(',')
+
 
     if @article.save
        @article.save_tags(tag_list)
@@ -16,6 +17,12 @@ class ArticlesController < ApplicationController
     else
        render :new
     end
+  end
+
+  def search
+    word = params[:search_word]
+    @articles = Article.search(word)
+
   end
 
 private

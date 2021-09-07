@@ -4,10 +4,14 @@ class Article < ApplicationRecord
 
 
   def save_tags(savearticle_tags)
-    byebug
     savearticle_tags.each do |new_name|
     article_tag = TagArticle.find_or_create_by(name: new_name)
-    self.tags << article_tag
+    self.tag_articles << article_tag
     end
   end
+
+  def self.search(word)
+    where(["name like? OR text like?", "%#{word}%", "%#{word}%"])
+  end
+
 end
