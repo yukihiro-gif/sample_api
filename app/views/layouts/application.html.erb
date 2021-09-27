@@ -26,6 +26,11 @@
         <li class="nav-list-item">
           <%= link_to "New List", todolists_new_path %>
         </li>
+        <li class="nav-list-item">
+          <% form_with url:top_path do |f| %>
+           <%= f.text_field :name %>
+          <% end %>
+        </li>
       </ul>
     </nav>
     <% if flash.any? %>
@@ -41,7 +46,7 @@
     <%= yield %>
     </main>
     <footer>
-     
+
     </footer>
   </body>
 </html>
