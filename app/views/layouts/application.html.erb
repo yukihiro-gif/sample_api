@@ -27,9 +27,7 @@
           <%= link_to "New List", todolists_new_path %>
         </li>
         <li class="nav-list-item">
-          <% form_with url:top_path do |f| %>
-           <%= f.text_field :name %>
-          <% end %>
+          <%= link_to "New list", todolists_new_path %> 
         </li>
       </ul>
     </nav>
