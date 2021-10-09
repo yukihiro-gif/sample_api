@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :articles, only:[:new, :create]
   get 'articles/search' => 'articles#search'
   resources :inquiries, only:[:new, :create]

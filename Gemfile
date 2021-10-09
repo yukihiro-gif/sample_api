@@ -67,3 +67,4 @@ gem "refile-mini_magick"
 gem 'dotenv-rails'
 gem "toastr-rails"
 gem 'jquery-rails'
+gem 'devise'
